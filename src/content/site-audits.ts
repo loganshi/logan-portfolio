@@ -115,11 +115,14 @@ export const publicSiteAudits: Record<string, PublicSiteAudit> = {
     observations: [
       "O site público reúne cursos, inscrições, formulário de contato, conteúdo editorial e navegação institucional.",
       "Os links externos levam a portais acadêmicos (academico.alfa.br e Lyceum), certificados e serviços institucionais.",
+      "Edital oficial de junho de 2024 cita formulários de pré-inscrição de mestrado e doutorado dentro de fadisp.com.br, já durante a atuação na Sinnapse.",
+      "O edital de 2024 menciona pagamento da taxa de inscrição por cartão ou PIX com envio de comprovante; não comprova checkout ou gateway implementado no site.",
       "O documento público apresenta Google Tag Manager e crédito da Sinnapse no rodapé.",
     ],
     sources: [
       { label: "Auditoria pública automatizada de assinaturas (GitHub Actions)", url: "https://github.com/loganshi/logan-portfolio/actions/runs/38759593764" },
       { label: "FADISP — site oficial", url: "https://fadisp.com.br/" },
+      { label: "FADISP — edital 2024/2 com URLs de inscrição", url: "https://fadisp.com.br/wp-content/uploads/2024/06/EDITAL-CONJUNTO-N.-19.24-PROGRAMA-DE-POS-GRADUACAO-STRICTO-SENSU-EM-DIREITO-PROCESSO-SELETIVO-2024-2.pdf" },
     ],
     limitations: "Arquivos públicos revelam Elementor, Hello Elementor e o plugin customizacao-sinnapse na versão atual, mas não comprovam autoria, data da implementação nem lógica interna. Links ao Lyceum não demonstram integração por API; GTM não prova quem o configurou.",
   },
