@@ -1,0 +1,27 @@
+name: Public site technology evidence
+on:
+  push:
+    branches:
+      - content/real-experience-cases
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-footprints:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Inspect public site homepages only
+        run: node scripts/public-tech-audit.mjs
+      - name: Save public evidence report
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-site-footprints
+          path: research-output/public-site-footprints.json
+          retention-days: 7
