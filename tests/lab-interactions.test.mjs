@@ -109,6 +109,9 @@ test("Public technical audits cover all case routes without unverifiable backend
     assert.match(audit.url, /^https:\/\//);
     assert.ok(audit.observations.length > 0);
     assert.ok(audit.fingerprints?.length > 0, `Technology evidence documented for ${project.slug}`);
+    if (["fk-partners", "barcelona-academy", "fadisp"].includes(project.slug)) {
+      assert.ok(audit.publicRestNamespaces?.length > 0, `REST namespaces documented for ${project.slug}`);
+    }
     for (const fingerprint of audit.fingerprints) {
       assert.ok(fingerprint.technology.length > 1);
       assert.ok(fingerprint.evidence.length > 5);
