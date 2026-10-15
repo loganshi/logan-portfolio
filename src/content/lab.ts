@@ -14,9 +14,9 @@ export const lab = {
       ],
     },
     scenes: [
-      { headline: "Conectar é\ncriar caminhos.", description: "Formulários, regras e plataformas em um mesmo fluxo. Explore uma demonstração visual do escopo de integração informado.", short: "Conectar", theme: "integration" },
-      { headline: "Conteúdo que\nencontra forma.", description: "Uma estrutura para experiências institucionais e educacionais. Alterne o formato e veja a composição se adaptar.", short: "Dar forma", theme: "editorial" },
-      { headline: "O produto além\nda superfície.", description: "Uma estrutura para soluções web sob medida. Separe as camadas para explorar como interface, lógica e dados se conectam.", short: "Construir", theme: "layers" },
+      { headline: "Conectar é\ncriar caminhos.", description: "Na FK Partners, formulários WordPress se conectam ao Salesforce. Explore uma simulação visual desse fluxo, sem dados reais.", short: "Conectar", theme: "integration" },
+      { headline: "Conteúdo que\nencontra forma.", description: "O trabalho de implementação responsiva para a Barcelona Academy é apresentado com uma composição editorial ilustrativa. Alterne entre desktop e mobile.", short: "Dar forma", theme: "editorial" },
+      { headline: "O produto além\nda superfície.", description: "Este próprio portfólio é um projeto real em Next.js. Separe as camadas de uma representação conceitual para explorar sua construção.", short: "Construir", theme: "layers" },
     ],
     capabilities: [
       { id: "frontend", title: "Frontend", core: "Experiência", description: "Interfaces que ajudam pessoas a chegar onde precisam.", outcome: "Aplicações web, interfaces responsivas e experiências interativas.", tags: content["pt-BR"].stack[0].items, positions: [[24, 18], [73, 16], [85, 50], [70, 82], [25, 82], [14, 48]] },
