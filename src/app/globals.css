@@ -138,3 +138,13 @@ img { max-width: 100%; }
 .case-audit-sources a:hover { color: var(--accent); }
 .case-audit-sources svg { width: .8rem; }
 @media (max-width: 650px) { .case-audit-findings { grid-template-columns: 1fr; } .case-audit-header { align-items: start; } }
+
+/* Audited public asset fingerprints are not historical technology claims. */
+.case-audit-footprints { margin: 1.2rem 0 2rem; }
+.case-audit-footprints h3 { margin: 0 0 .7rem; font: 500 clamp(1.25rem, 2vw, 1.75rem)/1.2 var(--font-display); }
+.case-audit-footprints > p { margin: 0 0 1.2rem; color: #aaa9a9; font-size: .78rem; line-height: 1.6; }
+.case-audit-footprint-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+.case-audit-footprint { min-width: 0; padding: 1rem; border: 1px solid var(--line); background: #191b1d; border-radius: 10px; }
+.case-audit-footprint > strong { display: block; color: #f5f4f0; font-size: .79rem; margin-bottom: .5rem; }
+.case-audit-footprint > code { display: block; font-size: .65rem; color: #aab3ba; line-height: 1.55; word-break: break-word; }
+@media (max-width: 650px) { .case-audit-footprint-grid { grid-template-columns: 1fr; } }
