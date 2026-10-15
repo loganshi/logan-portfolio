@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - content/real-experience-cases
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
