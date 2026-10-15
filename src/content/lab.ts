@@ -15,7 +15,7 @@ export const lab = {
     },
     scenes: [
       { headline: "Conectar é\ncriar caminhos.", description: "Na FK Partners, formulários WordPress se conectam ao Salesforce. Explore uma simulação visual desse fluxo, sem dados reais.", short: "Conectar", theme: "integration" },
-      { headline: "Conteúdo que\nencontra forma.", description: "O trabalho de implementação responsiva para a Barcelona Academy é apresentado com uma composição editorial ilustrativa. Alterne entre desktop e mobile.", short: "Dar forma", theme: "editorial" },
+      { headline: "Conteúdo que\nencontra forma.", description: "O desenvolvimento institucional para a FADISP é apresentado com uma composição editorial ilustrativa. Alterne entre desktop e mobile.", short: "Dar forma", theme: "editorial" },
       { headline: "O produto além\nda superfície.", description: "Este próprio portfólio é um projeto real em Next.js. Separe as camadas de uma representação conceitual para explorar sua construção.", short: "Construir", theme: "layers" },
     ],
     capabilities: [
