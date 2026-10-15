@@ -211,3 +211,11 @@
 .lab-more-work-cta svg { width: 1rem; }
 @media (max-width: 650px) { .lab-more-work-grid { grid-template-columns: 1fr; } .lab-more-work-card { min-height: 230px; } }
 @media (prefers-reduced-motion: reduce) { .lab-more-work-card { transition: none; }.lab-more-work-card:hover, .lab-more-work-card:focus-visible { transform: none; } }
+
+
+/* V3 — live-site preview thumbnails in the case archive. */
+.lab-more-work-media { position: relative; display: block; width: 100%; height: clamp(180px, 20vw, 270px); min-width: 0; overflow: hidden; background: #0d0e10; border-radius: 10px; border: 1px solid #ffffff24; }
+.lab-more-work-media > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .45s var(--lab-ease); }
+.lab-more-work-card:hover .lab-more-work-media > img, .lab-more-work-card:focus-visible .lab-more-work-media > img { transform: scale(1.025); }
+.lab-more-work-media small { position: absolute; bottom: .6rem; left: .6rem; color: #fafafa; background: #17191bd9; padding: .35rem .5rem; border-radius: 4px; font-size: .58rem; letter-spacing: .04em; }
+@media (prefers-reduced-motion: reduce) { .lab-more-work-media > img { transition: none; } .lab-more-work-card:hover .lab-more-work-media > img, .lab-more-work-card:focus-visible .lab-more-work-media > img { transform: none; } }
