@@ -58,6 +58,23 @@ for (const [name, url] of sites) {
       result.publicFormElements = formCount;
       const version = html.match(/<meta\s+name=["']generator["']\s+content=["']([^"'<>]+)["']/i);
       if(version) result.generatorMeta = version[1].slice(0, 120);
+      if (result.observations.some(item => item.technology === "WordPress (assets)")) {
+        // WordPress REST index is a documented public, unauthenticated discovery resource.
+        // Record only namespaces, not route parameters or user/content records.
+        try {
+          const restUrl = new URL("/wp-json/", response.url);
+          const restResponse = await fetch(restUrl, {
+            signal: AbortSignal.timeout(9000),
+            headers: { "user-agent": "Mozilla/5.0 (compatible; PortfolioPublicTechResearch/1.0)" }
+          });
+          result.publicWpRest = { status: restResponse.status };
+          if (restResponse.ok && (restResponse.headers.get("content-type") || "").includes("json")) {
+            const doc = await restResponse.json();
+            result.publicWpRest.namespaces = Array.isArray(doc.namespaces)
+              ? doc.namespaces.filter(v => typeof v === "string").slice(0, 80) : [];
+          }
+        } catch (e) { result.publicWpRest = { error: String(e).slice(0, 110) }; }
+      }
     }
   } catch (e) { result.error = String(e).slice(0, 220); }
   output.push(result);
