@@ -1,0 +1,59 @@
+name: V3 — verified public case screenshots and resume
+on:
+  push:
+    branches:
+      - feat/v3-contact-resume-real-cases
+    paths:
+      - .github/workflows/v3-assets.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v3-public-assets-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate-assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Build updated CV PDF
+        run: |
+          python -m pip install --disable-pip-version-check reportlab==4.4.4
+          python scripts/generate-public-cv.py
+      - name: Install project dependencies and screenshot browser
+        run: |
+          npm ci
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Capture current public case sites (no logins or form submissions)
+        run: node scripts/capture-public-cases.mjs
+      - name: Validate source and interactive components
+        run: |
+          npm run lint
+          npm run typecheck
+          npm run test:interactions
+          npm run build
+      - name: Commit only checked source files and generated assets to V3 branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- public/Logan_Mendes_Contardi_Curriculo_2026.pdf public/projects src/content/real-project-media.ts
+          if ! git diff --cached --quiet; then
+            git commit -m "assets(v3): generated public case screenshots and updated PDF résumé"
+            git push origin HEAD:feat/v3-contact-resume-real-cases
+          else
+            echo "No new assets."
+          fi

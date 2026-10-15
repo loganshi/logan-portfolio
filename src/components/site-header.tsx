@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { content } from "@/content/profile";
+import { content, profile } from "@/content/profile";
 import { ArrowUpRight, CloseIcon, MenuIcon } from "@/components/icons";
 
 const navigation = content["pt-BR"].navigation;
@@ -50,6 +50,7 @@ export function SiteHeader() {
           <nav className="desktop-nav" aria-label="Navegação principal">
             {navigation.map((item) => <Link key={item.href} href={item.href} data-active={pathname.startsWith("/projetos") ? item.href === "/#projetos" : item.href === `/#${activeSection}`} aria-current={(pathname.startsWith("/projetos") ? item.href === "/#projetos" : item.href === `/#${activeSection}`) ? "location" : undefined}>{item.label}</Link>)}
           </nav>
+          {profile.resume ? <a className="header-resume" href={profile.resume} download="Logan_Mendes_Contardi_Curriculo_2026.pdf">Currículo ↓</a> : null}
           <Link className="header-contact" href="/#contato">Contato <ArrowUpRight /></Link>
           <button ref={menuButton} className="menu-trigger" type="button" aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen((value) => !value)}>
             {open ? <CloseIcon /> : <MenuIcon />}
@@ -61,6 +62,7 @@ export function SiteHeader() {
         {open ? <motion.nav id="mobile-navigation" className="mobile-nav" aria-label="Navegação móvel" initial={reduceMotion ? false : { opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }} transition={{ duration: 0.22 }}>
           {navigation.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}<ArrowUpRight /></Link>)}
           <Link href="/#contato" onClick={() => setOpen(false)}><span>05</span>Contato<ArrowUpRight /></Link>
+          {profile.resume ? <a href={profile.resume} download="Logan_Mendes_Contardi_Curriculo_2026.pdf" onClick={() => setOpen(false)}><span>06</span>Baixar currículo (PDF)<ArrowUpRight /></a> : null}
         </motion.nav> : null}
       </AnimatePresence>
     </>

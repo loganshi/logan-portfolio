@@ -204,10 +204,18 @@
 .lab-more-work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .lab-more-work-card { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: .9rem; border: 1px solid #ffffff27; border-radius: 14px; background: #222427; padding: clamp(1.3rem, 3vw, 2.4rem); transition: background .2s, border-color .2s, transform .3s var(--lab-ease); }
 .lab-more-work-card:hover, .lab-more-work-card:focus-visible { background: #2d2e30; border-color: #e38f6b; transform: translateY(-3px); }
-.lab-more-work-card > span:first-child { font-size: .67rem; color: #d1a18e; letter-spacing: .06em; }
+.lab-more-work-card > .lab-more-work-category { font-size: .67rem; color: #d1a18e; letter-spacing: .06em; }
 .lab-more-work-card > strong { font: 500 clamp(1.8rem, 2.5vw, 2.8rem)/1.05 var(--font-display); letter-spacing: -.05em; }
 .lab-more-work-card > p { color: #b6b2b0; font-size: .83rem; line-height: 1.6; max-width: 500px; flex: 1; }
 .lab-more-work-cta { display: flex; align-items: center; gap: .6rem; color: #eee7e3; font-size: .73rem; font-weight: 600; margin-top: 1.5rem; }
 .lab-more-work-cta svg { width: 1rem; }
 @media (max-width: 650px) { .lab-more-work-grid { grid-template-columns: 1fr; } .lab-more-work-card { min-height: 230px; } }
 @media (prefers-reduced-motion: reduce) { .lab-more-work-card { transition: none; }.lab-more-work-card:hover, .lab-more-work-card:focus-visible { transform: none; } }
+
+
+/* V3 — live-site preview thumbnails in the case archive. */
+.lab-more-work-media { position: relative; display: block; width: 100%; height: clamp(180px, 20vw, 270px); min-width: 0; overflow: hidden; background: #0d0e10; border-radius: 10px; border: 1px solid #ffffff24; }
+.lab-more-work-media > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .45s var(--lab-ease); }
+.lab-more-work-card:hover .lab-more-work-media > img, .lab-more-work-card:focus-visible .lab-more-work-media > img { transform: scale(1.025); }
+.lab-more-work-media small { position: absolute; bottom: .6rem; left: .6rem; color: #fafafa; background: #17191bd9; padding: .35rem .5rem; border-radius: 4px; font-size: .58rem; letter-spacing: .04em; }
+@media (prefers-reduced-motion: reduce) { .lab-more-work-media > img { transition: none; } .lab-more-work-card:hover .lab-more-work-media > img, .lab-more-work-card:focus-visible .lab-more-work-media > img { transform: none; } }

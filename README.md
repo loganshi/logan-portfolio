@@ -2,6 +2,17 @@
 
 V2 do portfólio: **From problem to product.** Next.js App Router, TypeScript, Tailwind CSS e Motion. As rotas individuais e os conteúdos confirmados da V1 foram preservados. Uma cópia anterior à transformação está em `.history/portfolio-v1.zip`.
 
+## V3 — contato profissional e evidências visuais
+
+A branch `feat/v3-contact-resume-real-cases` prepara a evolução da V2 para candidaturas, sem substituir a experiência interativa existente.
+
+- E-mail profissional confirmado: `loganmendescontardi@gmail.com`; GitHub e botão para baixar currículo PDF.
+- LinkedIn permanece oculto enquanto a URL exata não for fornecida — sem links fictícios.
+- `scripts/generate-public-cv.py` cria um currículo conciso e atual em `public/Logan_Mendes_Contardi_Curriculo_2026.pdf`, com histórico FK Partners / Sinnapse / Wetok / WK Group. Revisar o PDF gerado visualmente antes de integrar o PR.
+- `scripts/capture-public-cases.mjs` usa Playwright para obter capturas **reais** de sites públicos, sem logins ou envios de formulários. Só os sites efetivamente capturados aparecem em `src/content/real-project-media.ts`; os demais continuam com os estudos conceituais da V2.
+- Imagens refletem o site público **na data da captura**, não necessariamente a versão desenvolvida em 2023–2024. Cada imagem tem legenda e link para a fonte.
+- O workflow `v3-assets.yml` gera ativos somente nesta branch. Mantemos a PR como rascunho até validar mídia, acessibilidade, CI e PDF.
+
 ## Executar
 
 ```bash

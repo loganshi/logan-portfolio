@@ -34,6 +34,8 @@ const { CapabilityMap } = await import("../src/components/capability-map.tsx");
 const { ProjectStory } = await import("../src/components/project-story.tsx");
 const { IntegrationPreview, EditorialPreview, LayersPreview } = await import("../src/components/project-previews.tsx");
 const { projects } = await import("../src/content/projects.ts");
+const { profile } = await import("../src/content/profile.ts");
+const { realProjectMedia } = await import("../src/content/real-project-media.ts");
 const { publicSiteAudits } = await import("../src/content/site-audits.ts");
 
 let root;
@@ -118,6 +120,18 @@ test("Public technical audits cover all case routes without unverifiable backend
     }
     assert.ok(audit.sources.length > 0);
     assert.ok(audit.limitations.length > 30);
+  }
+});
+
+test("V3 professional contact and CV download point to the intended public assets", () => {
+  assert.equal(profile.email, "loganmendescontardi@gmail.com");
+  assert.match(profile.resume, /^\/[a-zA-Z0-9_\-]+\.pdf$/);
+  assert.ok(profile.github.startsWith("https://github.com/"));
+  assert.ok(profile.linkedin === null || profile.linkedin.startsWith("https://"));
+  for (const slug of Object.keys(realProjectMedia)) {
+    assert.ok(projects.some((project) => project.slug === slug), `Known case: ${slug}`);
+    assert.match(realProjectMedia[slug].desktop, /^\/projects\/[^/]+-desktop\.jpg$/);
+    assert.match(realProjectMedia[slug].sourceUrl, /^https:\/\//);
   }
 });
 

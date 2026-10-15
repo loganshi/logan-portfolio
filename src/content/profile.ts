@@ -2,10 +2,10 @@ export const profile = {
   name: "Logan Mendes Contardi",
   role: "Desenvolvedor Full Stack Pleno · WordPress/PHP",
   years: "6+",
-  email: null as string | null,
+  email: "loganmendescontardi@gmail.com" as string | null,
   linkedin: null as string | null,
   github: "https://github.com/loganshi" as string | null,
-  resume: null as string | null,
+  resume: "/Logan_Mendes_Contardi_Curriculo_2026.pdf" as string | null,
 };
 
 export const content = {
