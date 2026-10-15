@@ -82,7 +82,7 @@ test("Capabilities respond to arrow keys and expose the matching content", async
 });
 
 test("Project chapters keep one accessible scene and retain each case route", async () => {
-  await render(ProjectStory, { projects });
+  await render(ProjectStory, { projects: projects.slice(0, 3) });
   const tabs = [...host.querySelectorAll('[role="tab"]')];
   await click(tabs[1]);
   const visible = [...host.querySelectorAll('[role="tabpanel"]')].filter((panel) => panel.getAttribute("aria-hidden") === "false");
@@ -92,6 +92,13 @@ test("Project chapters keep one accessible scene and retain each case route", as
   await act(async () => { tabs[1].dispatchEvent(new KeyboardEvent("keydown", { key: "End", bubbles: true })); });
   assert.equal(tabs[2].getAttribute("aria-selected"), "true");
   assert.equal(host.querySelector("#scene-solucoes-customizadas").getAttribute("aria-hidden"), "false");
+});
+
+test("Additional real project cases are available by distinct routes", () => {
+  assert.ok(projects.some((project) => project.name === "Expo Neon" && project.slug === "experiencias-institucionais"));
+  assert.ok(projects.some((project) => project.name === "Barcelona Academy" && project.slug === "barcelona-academy"));
+  assert.ok(projects.some((project) => project.name === "FADISP" && project.slug === "fadisp"));
+  assert.equal(new Set(projects.map(({ slug }) => slug)).size, projects.length);
 });
 
 test("Integration demonstration completes, announces its result, and can restart", async () => {
