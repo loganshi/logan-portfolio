@@ -36,7 +36,8 @@ Os testes de DOM verificam os controles e a navegação por teclado com moviment
 
 - `src/content/profile.ts`: perfil, contatos, experiência e tecnologias.
 - `src/content/projects.ts`: dados e rotas dos cases, com pendências explícitas.
-- `src/content/site-audits.ts`: evidências públicas auditadas e limites de verificação exibidos nos cases.
+- `src/content/site-audits.ts`: evidências públicas auditadas, assinaturas atuais de plugins/temas, namespaces REST públicos e limites de verificação exibidos nos cases.
+- `scripts/public-tech-audit.mjs` e `.github/workflows/public-site-technology.yml`: auditoria não invasiva da homepage e índice REST público dos sites, sem logins nem submissões; execução também valida lint, tipos, interações e build. [Exemplo de execução](https://github.com/loganshi/logan-portfolio/actions/runs/38760705636).
 - `docs/research/public-site-technology-audit-2026-10.md`: pesquisa técnica de todos os projetos citados da Sinnapse, incluindo os não destacados na home.
 - `src/content/lab.ts`: textos da V2 e composições dos mapas, organizados por locale.
 - `src/components/hero.tsx`: sistema interativo e transformação pelo scroll.
