@@ -37,8 +37,8 @@ export function EditorialPreview() {
   return <div className="editorial-preview">
     <span className="editorial-backtype" aria-hidden="true">Aa</span>
     <motion.div layout role="group" aria-label={`Prévia em formato ${mobile ? "mobile" : "desktop"}`} className={`demo-browser editorial-browser${mobile ? " is-mobile" : ""}`} transition={{ duration: reduced ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}>
-      <div className="demo-chrome"><span /><span /><span /><small>conteúdo / conceito</small></div>
-      <div className="editorial-screen"><div className="editorial-site-nav"><b>perspectiva<span>®</span></b><i aria-hidden="true">≡</i></div><div className="editorial-cover"><div><small>Um espaço para descobrir</small><strong>Aprender<br />abre<br /><em>caminhos.</em></strong></div><div className="editorial-flower" aria-hidden="true"><i /><i /><i /><i /></div></div><div className="editorial-site-bottom"><span>Conhecimento em movimento</span><span aria-hidden="true">↗</span></div></div>
+      <div className="demo-chrome"><span /><span /><span /><small>institucional / conceito</small></div>
+      <div className="editorial-screen"><div className="editorial-site-nav"><b>estudo visual<span>®</span></b><i aria-hidden="true">≡</i></div><div className="editorial-cover"><div><small>Composição conceitual para eventos</small><strong>Novos<br />espaços.<br /><em>Conexões.</em></strong></div><div className="editorial-flower" aria-hidden="true"><i /><i /><i /><i /></div></div><div className="editorial-site-bottom"><span>Explorando novas experiências</span><span aria-hidden="true">↗</span></div></div>
     </motion.div>
     <div className="preview-action editorial-action"><div className="preview-toggle" aria-label="Formato da prévia"><button type="button" aria-pressed={!mobile} onClick={() => setMobile(false)}>Desktop</button><button type="button" aria-pressed={mobile} onClick={() => setMobile(true)}>Mobile</button></div><span>Altere o formato da composição</span></div>
   </div>;
