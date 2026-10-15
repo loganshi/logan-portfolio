@@ -43,6 +43,6 @@ Os testes de DOM verificam os controles e a navegação por teclado com moviment
 - `src/app/lab.css`: identidade e adaptações da homepage V2.
 - `src/app/globals.css`: base compartilhada e estilos dos cases.
 
-As composições de projetos são conceituais, feitas com HTML/CSS/SVG. Os cases institucionais e customizados continuam estruturas provisórias. O case FK Partners contém somente o escopo informado; detalhes, período e resultados aguardam validação.
+As composições visuais dos cases são ilustrativas, feitas com HTML/CSS/SVG e não representam capturas reais das empresas. Os três cases agora descrevem projetos concretos: integração e performance na FK Partners, desenvolvimento institucional para Barcelona Academy (na Sinnapse) e este portfólio interativo. As descrições profissionais preservam limites explícitos onde período, autoria detalhada, métricas ou imagens autorizadas aguardam validação. Os slugs da V2 foram mantidos para não quebrar links existentes.
 
-Antes de publicar, complete e-mail, LinkedIn, GitHub e currículo em `profile.ts`, além de cargos, períodos, capturas autorizadas e resultados verificáveis. Configure `NEXT_PUBLIC_SITE_URL` com o domínio final para metadados, robots e sitemap. A primeira versão está em PT-BR; os módulos de conteúdo permitem acrescentar traduções.
+O GitHub público já está vinculado no perfil. Antes de publicar, complete e-mail, LinkedIn e currículo em `profile.ts`, confira a identificação e os períodos das experiências anteriores e adicione capturas autorizadas e resultados verificáveis. Configure `NEXT_PUBLIC_SITE_URL` com o domínio final para metadados, robots e sitemap. A primeira versão está em PT-BR; os módulos de conteúdo permitem acrescentar traduções.
