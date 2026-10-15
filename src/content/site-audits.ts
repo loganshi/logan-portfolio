@@ -47,7 +47,7 @@ export const publicSiteAudits: Record<string, PublicSiteAudit> = {
     sources: [
       { label: "Auditoria pública automatizada de assinaturas (GitHub Actions)", url: "https://github.com/loganshi/logan-portfolio/actions/runs/38759593764" },
       { label: "Expo Neon — site", url: "https://www.exponeon.com.br/" },
-      { label: "Expo Neon — contato", url: "https://www.exponeon.com.br/contato" },
+      { label: "Expo Neon — formulário de contato", url: "https://www.exponeon.com.br/en/contact" },
       { label: "Expo Neon — sobre", url: "https://www.exponeon.com.br/sobre" },
     ],
     limitations: "O formulário visível não prova conexão com CRM, plataforma de automação ou API. Os assets de Next.js e GTM são do site atual (2026) e não comprovam que a versão desenvolvida em 2023–2024 usava Next.js; CRM e backend não foram identificados.",
