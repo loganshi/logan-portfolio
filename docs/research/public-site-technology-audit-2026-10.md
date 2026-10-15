@@ -78,3 +78,23 @@ A inspeção coleta HTML da homepage e registra caminhos de CSS/JS, nomes de pas
 ### Próximo aprofundamento possível sem login
 
 O rastreamento do HTML das **páginas internas** (além da homepage) pode identificar componentes e bibliotecas que só são carregados em formulários ou jornadas de inscrição. Isso continua limitado ao frontend público; integrações server-to-server e histórico original não são recuperáveis com confiabilidade por inspeção externa.
+
+## Índices públicos de API REST WordPress — 15/10/2026
+
+**Método:** foi consultado o índice público `/wp-json/` de cada site que já apresentava recursos do WordPress. São nomes de namespaces publicados automaticamente por plugins/temas ou integrações customizadas, **não** respostas de endpoints internos. Resultado completo disponível no artefato da [execução bem-sucedida do GitHub Actions](https://github.com/loganshi/logan-portfolio/actions/runs/38760705636).
+
+| Site | Namespaces públicos relevantes | Conclusão segura | O que não é possível afirmar |
+|---|---|---|---|
+| Barça Academy | `elementor/v1`, `happy/v1`, `wp-rocket/v1`, `wp/v2` | O site atual anuncia APIs de Elementor, Happy Addons, WP Rocket e WordPress | Não foi encontrado namespace explícito de CRM ou checkout, mas integrações server-to-server podem não aparecer |
+| FADISP | `tribe/events/v1`, `tec/v1`, `elementskit/v1`, `wordfence/v1`, `redirection/v1`, `elementor-pro/v1` | Há APIs públicas para eventos, componentes de Elementor, segurança e redirecionamento | Os portais Lyceum e acadêmico permanecem links externos; o índice não demonstra que a instituição use API própria de matrícula implementada no site |
+| UNIALFA | **`presenca-direito/v1`**, `elementskit/v1`, `google-site-kit/v1`, `wordfence/v1`, `elementor-pro/v1` | Uma namespace customizada de **presença/direito** está registrada no WordPress atual, além de componentes de tracking e Elementor | Não foi possível examinar o funcionamento interno de `presenca-direito/v1`, nem atribuir sua criação ao desenvolvedor ou à migração de cursos |
+| Belavista | `jet-form-builder/v1`, `wpforms/v1`, `cptui/v1`, `gtmkit/v1`, `wp-rocket/v1` | APIs de formulários e tipos de conteúdo do WordPress estão publicamente anunciadas | Um formulário de inscrição e a etapa de pagamento não revelam o CRM ou meio de cobrança implementado |
+| Grupo Audens | **`audens/v1`**, `contact-form-7/v1`, `wpforms/v1`, `mc4wp/v1`, `elementor-pro/v1` | Presença de namespace customizada do próprio projeto, além de APIs relacionadas a formulários e marketing | Não é possível inferir endpoints de integração CRM ou identificar qual plugin atende cada formulário específico sem navegar/testar o fluxo (não fiz envios) |
+| Colégio Alves Faria | `pys/v1`, `gtm4wp/v2`, `wp-rocket/v1`, `elementskit/v1`, `joinchat/v1` | APIs públicas atuais de pixels, GTM, cache, blocos e contato | Nenhuma dessas ferramentas pode ser atribuída à versão entregue em 2023–2024 só pela presença atual |
+| FK Partners | `wc/v3`, `wc/store/v1`, **`redePRO`**, **`redeIntegration`**, **`woorede`**, `litespeed/v1`, `aioseo/v1` | A instalação atual anuncia WooCommerce e três namespaces com nome de integração Rede/UseRede, além de LiteSpeed e SEO | Isso não prova que Logan implementou o gateway ou que o uso de Salesforce compartilha esses endpoints. Gravity Forms–Salesforce permanece fundamentado no relato de implementação do plugin. |
+
+**Nota técnica:** nem todos os plugins registram namespaces; a ausência de `gravityforms/v2`, `salesforce/v1` ou similares **não exclui** uma integração existente. Uma integração PHP server-to-server pode operar sem publicar um endpoint REST. Estas evidências não incluem payloads, credenciais ou dados de terceiros.
+
+## Validação da V2
+
+O GitHub Actions passou a executar também os comandos `npm ci`, `npm run lint`, `npm run typecheck`, `npm run test:interactions` e `npm run build`. A primeira execução detectou erro de sintaxe no case Barcelona Academy, já corrigido na branch. Na [execução subsequente](https://github.com/loganshi/logan-portfolio/actions/runs/38760705636), os dois jobs (auditoria de sites e verificação do portfólio) concluíram com sucesso.
