@@ -79,7 +79,7 @@ export const projects: Project[] = [
     challenge: "Conduzir a implementação técnica de um site institucional completo, incluindo suas interfaces e a conexão com serviços ou sistemas externos. Os requisitos originais e os destinos dessas integrações ainda precisam ser documentados.",
     solution: "Desenvolvimento do site de ponta a ponta no contexto WordPress, com implementação de páginas e interface responsiva e execução das integrações do projeto. As APIs, plataformas e fluxos de dados específicos serão detalhados após confirmação.",
     contribution: "Responsabilidade pelo desenvolvimento integral do site e pelas integrações durante minha atuação na Sinnapse, contemplando implementação técnica e entrega das funcionalidades previstas.",
-    results: "Site desenvolvido e integrações implementadas, conforme atuação confirmada. Indicadores de performance, conversão e outras métricas de negócio ainda não foram fornecidos."
+    results: "Site desenvolvido e integrações implementadas, conforme atuação confirmada. Indicadores de performance, conversão e outras métricas de negócio ainda não foram fornecidos.",
     galleryNotes: ["Composição editorial genérica; não representa o site da Barcelona Academy.", "Visual ilustrativo, pendente de captura autorizada."],
   },
   {
