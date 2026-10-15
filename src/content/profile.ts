@@ -31,7 +31,7 @@ export const content = {
       {
         title: "Sinnapse · Desenvolvedor WordPress",
         context: "08/2023 — 08/2024",
-        description: "Desenvolvimento completo de sites institucionais, landing pages e e-commerces em WordPress, com construção e personalização de temas, HTML/CSS/JavaScript, implementação responsiva, manutenção evolutiva, diagnóstico de bugs e otimização técnica. Destaque para o site do Expo Neon, empreendimento ligado ao retrofit do Expo Center Norte, além de RoleUSA, FADISP, Grupo Audens, Faculdade Belavista, Unialfa, Colégio Alves Faria e atualização do site Sinnapse.",
+        description: "Desenvolvimento completo de sites institucionais, landing pages e e-commerces em WordPress, com construção e personalização de temas, HTML/CSS/JavaScript, implementação responsiva, manutenção evolutiva, diagnóstico de bugs e otimização técnica. Destaque para o site do Expo Neon, empreendimento ligado ao retrofit do Expo Center Norte, e para o desenvolvimento integral e integrações do site Barcelona Academy. Outros projetos incluem RoleUSA, FADISP, Grupo Audens, Faculdade Belavista, Unialfa, Colégio Alves Faria e a atualização do site Sinnapse.",
         technologies: ["WordPress", "PHP", "Elementor", "JavaScript", "Performance", "SEO técnico"],
       },
       {
