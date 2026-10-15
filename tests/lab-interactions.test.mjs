@@ -34,6 +34,7 @@ const { CapabilityMap } = await import("../src/components/capability-map.tsx");
 const { ProjectStory } = await import("../src/components/project-story.tsx");
 const { IntegrationPreview, EditorialPreview, LayersPreview } = await import("../src/components/project-previews.tsx");
 const { projects } = await import("../src/content/projects.ts");
+const { publicSiteAudits } = await import("../src/content/site-audits.ts");
 
 let root;
 let host;
@@ -99,6 +100,17 @@ test("Additional real project cases are available by distinct routes", () => {
   assert.ok(projects.some((project) => project.name === "Barcelona Academy" && project.slug === "barcelona-academy"));
   assert.ok(projects.some((project) => project.name === "FADISP" && project.slug === "fadisp"));
   assert.equal(new Set(projects.map(({ slug }) => slug)).size, projects.length);
+});
+
+test("Public technical audits cover all case routes without unverifiable backend claims", () => {
+  for (const project of projects) {
+    const audit = publicSiteAudits[project.slug];
+    assert.ok(audit, `Audit exists for ${project.slug}`);
+    assert.match(audit.url, /^https:\/\//);
+    assert.ok(audit.observations.length > 0);
+    assert.ok(audit.sources.length > 0);
+    assert.ok(audit.limitations.length > 30);
+  }
 });
 
 test("Integration demonstration completes, announces its result, and can restart", async () => {
