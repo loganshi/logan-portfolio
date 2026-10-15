@@ -98,3 +98,10 @@ O rastreamento do HTML das **páginas internas** (além da homepage) pode identi
 ## Validação da V2
 
 O GitHub Actions passou a executar também os comandos `npm ci`, `npm run lint`, `npm run typecheck`, `npm run test:interactions` e `npm run build`. A primeira execução detectou erro de sintaxe no case Barcelona Academy, já corrigido na branch. Na [execução subsequente](https://github.com/loganshi/logan-portfolio/actions/runs/38760705636), os dois jobs (auditoria de sites e verificação do portfólio) concluíram com sucesso.
+
+
+## Evidência histórica adicional — FADISP em 2024
+
+Um edital institucional do processo seletivo 2024/2, publicado em junho de 2024 (durante o vínculo profissional na Sinnapse), apontava formulários de pré-inscrição para mestrado e doutorado **no próprio domínio da FADISP**: `/mestrado/pre-inscricao` e `/doutorado/pre-inscricao`. O edital também solicitava documentação e comprovante de pagamento, mencionando cartão ou PIX, mas isso **não comprova** integração de checkout ou gateway de pagamento no site. É um registro histórico de jornadas de inscrição, não uma prova da implementação individual de Logan nem da tecnologia de formulários utilizada.
+
+Fonte oficial: https://fadisp.com.br/wp-content/uploads/2024/06/EDITAL-CONJUNTO-N.-19.24-PROGRAMA-DE-POS-GRADUACAO-STRICTO-SENSU-EM-DIREITO-PROCESSO-SELETIVO-2024-2.pdf
