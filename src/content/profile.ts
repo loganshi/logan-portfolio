@@ -19,7 +19,7 @@ export const content = {
     about: {
       title: "Código é meio. Solução é o ponto.",
       intro: "Sou desenvolvedor Full Stack Pleno, com mais de seis anos de experiência em desenvolvimento web, especializado em WordPress, PHP, integrações e performance.",
-      body: "Transformo requisitos de negócio em soluções web completas: arquitetura e customização de sites e e-commerces, desenvolvimento de funcionalidades próprias, integração entre plataformas e otimização técnica. Na FK Partners, trabalho na evolução do ecossistema WordPress e na conexão de formulários ao Salesforce. Minha trajetória também inclui projetos digitais para instituições de ensino, eventos e empresas de diferentes segmentos.",
+      body: "Transformo requisitos de negócio em aplicações e experiências web: sites e e-commerces em WordPress, componentes e funcionalidades próprios, integrações com CRM, otimização técnica e sustentação de sistemas. Na FK Partners, atuo em PHP/WordPress e integrações com Salesforce. Minha trajetória inclui interfaces em JavaScript, jQuery e Bootstrap, sistemas internos, pagamentos em WooCommerce e projetos institucionais para educação, eventos e outros segmentos.",
     },
     experience: [
       {
@@ -31,20 +31,20 @@ export const content = {
       {
         title: "Sinnapse · Desenvolvedor WordPress",
         context: "08/2023 — 08/2024",
-        description: "Desenvolvimento de sites institucionais, landing pages e e-commerces a partir de temas personalizados ou implementações do zero. Conversão de layouts em interfaces responsivas, customização de componentes WordPress, manutenção evolutiva, depuração de bugs, SEO técnico e otimização de carregamento. Projetos informados: RoleUSA, FADISP, Expo Neon, Grupo Audens, Faculdade Belavista, Unialfa e Colégio Alves Faria, além do site da própria Sinnapse.",
-        technologies: ["WordPress", "PHP", "Elementor", "HTML/CSS", "JavaScript", "SEO técnico"],
+        description: "Desenvolvimento completo de sites institucionais, landing pages e e-commerces em WordPress, com construção e personalização de temas, HTML/CSS/JavaScript, implementação responsiva, manutenção evolutiva, diagnóstico de bugs e otimização técnica. Destaque para o site do Expo Neon, empreendimento ligado ao retrofit do Expo Center Norte, além de RoleUSA, FADISP, Grupo Audens, Faculdade Belavista, Unialfa, Colégio Alves Faria e atualização do site Sinnapse.",
+        technologies: ["WordPress", "PHP", "Elementor", "JavaScript", "Performance", "SEO técnico"],
       },
       {
         title: "Wetok Software · Desenvolvedor Front-End",
         context: "01/2023 — 08/2023",
-        description: "Implementação e evolução de interfaces para sites, landing pages e experiências de e-commerce, com foco em HTML, CSS, JavaScript, responsividade e fidelidade aos layouts. Customização de páginas, manutenção corretiva e evolutiva, investigação de bugs e adaptação da experiência para diferentes tamanhos de tela. Clientes e entregas individuais dessa etapa ainda serão associados após confirmação.",
-        technologies: ["HTML", "CSS", "JavaScript", "Front-End", "Responsividade", "Debugging"],
+        description: "Desenvolvimento de interfaces e demandas front-end de sites e sistemas em JavaScript, incluindo criação, manutenção e testes de funcionalidades. Implementação da landing page WetokSoft com HTML5, CSS, JavaScript e jQuery e da landing page ConnectPlay com HTML5, CSS, JavaScript, Bootstrap e jQuery. Ajustes responsivos, correção de bugs e sustentação das interfaces.",
+        technologies: ["HTML5", "CSS3", "JavaScript", "jQuery", "Bootstrap", "Testes"],
       },
       {
-        title: "WK Group · Desenvolvedor Full Stack",
+        title: "WK Group · Desenvolvedor Front-End",
         context: "04/2021 — 01/2023",
-        description: "Desenvolvimento de soluções web de ponta a ponta, incluindo sites, landing pages e lojas virtuais. Implementação e customização de temas e funcionalidades, integração entre interface e lógica de aplicação, manutenção de projetos existentes e resolução de problemas técnicos no front-end e no back-end. Projetos específicos dessa etapa aguardam confirmação de autoria.",
-        technologies: ["WordPress", "PHP", "JavaScript", "HTML/CSS", "Full-Stack", "Manutenção"],
+        description: "Criação e manutenção de sites WordPress, personalização de temas, configuração de WooCommerce e integração de pagamentos Stripe via plugins. Desenvolvimento de sistema interno de estoque com HTML5, CSS, JavaScript, jQuery e Bootstrap para apoiar processos operacionais. Adaptação multilíngue, SEO, relatórios de métricas com Google Analytics, AdSense e AdWords, além de suporte técnico a clientes internacionais por telefone e e-mail.",
+        technologies: ["WordPress", "WooCommerce", "Stripe", "JavaScript", "jQuery", "Bootstrap"],
       },
     ],
     stack: [
