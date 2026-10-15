@@ -7,6 +7,8 @@ export type PublicSiteAudit = {
   observations: string[];
   // Indícios de tecnologias carregadas HOJE na página, não prova da implementação histórica.
   fingerprints?: { technology: string; evidence: string }[];
+  // Namespaces anunciados pelo índice público /wp-json/; não provam API privada nem autoria.
+  publicRestNamespaces?: string[];
   sources: { label: string; url: string }[];
   limitations: string;
 };
@@ -21,6 +23,7 @@ export const publicSiteAudits: Record<string, PublicSiteAudit> = {
       { technology: "Tema personalizado fkpartners", evidence: "/wp-content/themes/fkpartners/assets/js/swiper.jquery.min.js" },
       { technology: "Google Tag Manager", evidence: "www.googletagmanager.com/gtm.js" },
     ],
+    publicRestNamespaces: ["litespeed/v1","wc/v3","wc/store/v1","redePRO","redeIntegration","woorede","aioseo/v1"],
     observations: [
       "A loja pública apresenta catálogo de cursos com filtros por certificação, área, modalidade e outros critérios.",
       "As páginas públicas exibem fluxos de escolha de produtos/cursos e elementos de mensuração, como Google Tag Manager e pixels.",
@@ -81,6 +84,7 @@ export const publicSiteAudits: Record<string, PublicSiteAudit> = {
       { technology: "Happy Elementor Addons", evidence: "/wp-content/plugins/happy-elementor-addons/" },
       { technology: "jQuery", evidence: "/wp-includes/js/jquery/jquery.min.js" },
     ],
+    publicRestNamespaces: ["elementor/v1","happy/v1","wp-rocket/v1","wp/v2"],
     observations: [
       "Arquivos públicos sob /wp-content/uploads são indício direto de WordPress no domínio consultado.",
       "O site contém formulário de interesse com assunto, nome, e-mail, telefone e mensagem.",
@@ -107,6 +111,7 @@ export const publicSiteAudits: Record<string, PublicSiteAudit> = {
       { technology: "The Events Calendar", evidence: "/wp-content/plugins/the-events-calendar/" },
       { technology: "Google Tag Manager", evidence: "www.googletagmanager.com/gtm.js" },
     ],
+    publicRestNamespaces: ["tribe/events/v1","elementskit/v1","elementor/v1","elementor-pro/v1","wordfence/v1","redirection/v1"],
     observations: [
       "O site público reúne cursos, inscrições, formulário de contato, conteúdo editorial e navegação institucional.",
       "Os links externos levam a portais acadêmicos (academico.alfa.br e Lyceum), certificados e serviços institucionais.",
