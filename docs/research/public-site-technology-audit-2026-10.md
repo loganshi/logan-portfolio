@@ -44,3 +44,37 @@ Para confirmar plugins de formulários, nome dos CRMs, automações, APIs, meios
 - Domínio/projeto antigo da RoleUSA e detalhes da importação da UNIALFA.
 
 **Regra editorial:** nas páginas públicas do portfólio, descrever técnicas de desenvolvimento afirmadas por Logan separadamente dos recursos visíveis no estado atual do site. Não promover pistas a provas de autoria ou de implementação backend.
+
+## Auditoria automática de assinaturas no HTML — 15/10/2026
+
+Além da análise de navegação, executei uma inspeção **somente leitura** das páginas iniciais de nove domínios públicos via GitHub Actions: [execução e artefato JSON](https://github.com/loganshi/logan-portfolio/actions/runs/38759593764). O script versionado está em `scripts/public-tech-audit.mjs`; o workflow está em `.github/workflows/public-site-technology.yml`.
+
+A inspeção coleta HTML da homepage e registra caminhos de CSS/JS, nomes de pastas publicamente referenciadas em `/wp-content/plugins/` e `/wp-content/themes/`, scripts de análise e sinais de frameworks, sem enviar formulários, acessar painéis nem tentar autenticação. Arquivos em `/wp-content/cache/` podem trazer referências a plugins, mas os nomes encontrados **não identificam seus autores** e **não confirmam a versão instalada em 2023–2024**.
+
+| Projeto | Evidência nos recursos públicos de 2026 | Valor para o portfólio | Cuidado |
+|---|---|---|---|
+| **Barça Academy** | WordPress 7.1.3 (meta generator), `/wp-includes/js/jquery/jquery.min.js`, `/wp-content/plugins/elementor/`, `elementor-pro`, `happy-elementor-addons`, `qt-places`, `wp-rocket` | Agora é seguro afirmar **WordPress, Elementor/Pro e jQuery presentes no site atual** | Não há evidência de CRM, API ou pagamento. O estúdio [Guilherme Studio](https://guilhermestudio.com/fc-barcelona-academy/) também publica um projeto visual datado de **2021**, anterior à passagem de Logan pela Sinnapse; não confundir direção de arte histórica com implementação técnica posterior. |
+| **Expo Neon** | Recursos em `/_next/static/css/` identificam **Next.js**; script de Google Tag Manager | Uma confirmação forte da arquitetura de frontend da **versão atual** | É incorreto atribuir Next.js ao desenvolvimento de 2023–2024 sem prova de que não houve reimplementação; também não foi identificado CRM. |
+| **FADISP** | WordPress 7.1.2, Elementor Pro, tema `hello-elementor`, `elementskit`, `the-events-calendar`, `/wp-content/plugins/customizacao-sinnapse/`, GTM | Existe um **plugin com nome de customização da Sinnapse** carregado no HTML público, além de bibliotecas e construtores específicos | A presença do plugin não comprova que Logan foi seu autor; Lyceum e portais acadêmicos continuam sendo links externos, não integrações de API comprovadas. |
+| **UNIALFA** | WordPress, Elementor Pro, Hello Elementor, ElementsKit, `/wp-content/plugins/customizacao-unialfa/`, `simple-cloudflare-turnstile`, GTM | Evidência de **customização específica do cliente** e controle anti-bot presente no frontend atual | Importação de dados de cursos no período de Logan veio do currículo; o código da importação não está exposto. |
+| **Belavista** | WordPress/Elementor Pro, tema Hello Elementor, `customizacao-belavista`, `translatepress-multilingual`, `gtm-kit`, `mask-form-elementor`, `wp-rocket` | Identifica **plugin nomeado para o cliente, tradução, máscaras de formulários e scripts de tracking** | Portal acadêmico aponta para domínio hospedado na infraestrutura TOTVS; isso não prova integração API. A etapa pública "Pagamento" não identifica gateway. |
+| **Grupo Audens** | Tema `/wp-content/themes/sinnapse/`, plugin `/wp-content/plugins/customizacao-audens/`, Elementor Pro e `contact-form-7` | Evidências diretas de **tema da agência, personalização do cliente e Contact Form 7** | Alguns sinais adicionais de Gravity Forms aparecem na marcação, mas sem asset específico identificado na homepage. Não atribuir dupla stack de formulários sem verificação. |
+| **Colégio Alves Faria** | A URL consultada redirecionou para `https://colegioalfagoiania.com.br/`; WordPress, Elementor Pro, ElementsKit, `pixelyoursite`, `wp-rocket` | Evidência de frontend WordPress e infraestrutura atual de pixels/cache | Não comprova uso dessas extensões na versão desenvolvida por Logan. |
+| **Sinnapse** | A homepage pública analisada retornou script de GTM, sem paths de plugins reconhecíveis pela auditoria | A própria agência informa publicamente que utiliza Elementor: https://sinnapse.com/desenvolvimento-de-sites/ | Ausência de paths no HTML da homepage **não prova** ausência de WordPress ou Elementor; assets podem estar agregados/ocultos. |
+| **FK Partners** | `/wp-content/plugins/litespeed-cache/`, tema `/wp-content/themes/fkpartners/`, assets WordPress e GTM, sinais de Elementor, Gravity Forms e WooCommerce na marcação | Complementa o relato do trabalho em WordPress/PHP e plugin de integração Salesforce; prova que **LiteSpeed Cache e tema próprio existem agora** | Marcação não revela quais partes do checkout, GTM, CRM ou plugins o desenvolvedor implementou pessoalmente. |
+
+### Exemplos de caminhos públicos com evidência direta
+
+- Barça Academy — `https://barcaacademy.com.br/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js`
+- Expo Neon — `https://www.exponeon.com.br/_next/static/css/3858e408b05f88ef.css`
+- FADISP — `/wp-content/plugins/customizacao-sinnapse/` (referência pública nos assets)
+- UNIALFA — `/wp-content/plugins/customizacao-unialfa/`
+- Belavista — `https://faculdadebelavista.edu.br/wp-content/cache/min/1/wp-content/plugins/customizacao-belavista/assets/css/custom.css`
+- Audens — `https://www.audensgroup.com.br/wp-content/plugins/contact-form-7/includes/css/styles.css` e `https://www.audensgroup.com.br/wp-content/themes/sinnapse/custom.css`
+- FK Partners — `https://fkpartners.com/wp-content/plugins/litespeed-cache/assets/js/webfontloader.min.js`
+
+**Confiança:** caminhos de assets explícitos no HTML possuem alta confiança sobre a **tecnologia atual carregada na página**. Nomes de pastas `customizacao-*` indicam código customizado vinculado ao domínio, mas não demonstram a funcionalidade interna. Atribuição de autoria, integrações com CRM e implementações históricas devem permanecer vinculadas ao relato profissional ou a evidências específicas de repositório da época.
+
+### Próximo aprofundamento possível sem login
+
+O rastreamento do HTML das **páginas internas** (além da homepage) pode identificar componentes e bibliotecas que só são carregados em formulários ou jornadas de inscrição. Isso continua limitado ao frontend público; integrações server-to-server e histórico original não são recuperáveis com confiabilidade por inspeção externa.
