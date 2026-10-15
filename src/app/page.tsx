@@ -7,7 +7,7 @@ import { content, profile } from "@/content/profile";
 import { projects } from "@/content/projects";
 
 const copy = content["pt-BR"];
-const storyProjects = projects.map(({ slug, name, status, technologies }) => ({ slug, name, status, technologies }));
+const storyProjects = projects.slice(0, 3).map(({ slug, name, status, technologies }) => ({ slug, name, status, technologies }));
 
 export default function Home() {
   return <main id="conteudo" className="lab-home">
@@ -19,7 +19,9 @@ export default function Home() {
 
     <ProjectStory projects={storyProjects} />
 
-    <section id="experiencia" className="lab-experience shell" aria-labelledby="experience-title"><div className="lab-experience-intro"><span className="lab-eyebrow">Percurso profissional</span><h2 id="experience-title">Entre camadas,<br />uma visão do todo.</h2><div className="lab-years"><strong>{profile.years}</strong><p>anos de experiência<br />em desenvolvimento web</p></div><p className="lab-experience-note">De 2021 até hoje: desenvolvimento full-stack na WK Group e FK Partners, front-end na Wetok Software e projetos WordPress para diversos clientes na Sinnapse.</p></div><div className="lab-experience-details">{copy.experience.map((item, index) => <details key={item.title} open={index === 0} className="lab-experience-item"><summary><span className="lab-experience-index">0{index + 1}</span><h3>{item.title}</h3><span className="lab-detail-plus" aria-hidden="true" /></summary><div className="lab-experience-content"><span>{item.context}</span><p>{item.description}</p><div className="inline-tags">{item.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div></div></details>)}<Link className="lab-experience-link" href="/projetos/fk-partners">Explorar o case FK Partners <ArrowUpRight /></Link></div></section>
+    <section className="lab-more-work" aria-labelledby="more-work-title"><div className="shell"><div className="lab-more-work-heading"><span className="lab-eyebrow">Outros projetos / trabalhos selecionados</span><h2 id="more-work-title">Mais histórias de desenvolvimento.</h2><p>Experiências reais que também fazem parte do meu percurso, em documentação contínua.</p></div><div className="lab-more-work-grid">{projects.slice(3).map((project) => <Link className="lab-more-work-card" key={project.slug} href={`/projetos/${project.slug}`}><span>{project.category}</span><strong>{project.name}</strong><p>{project.summary}</p><span className="lab-more-work-cta">Explorar case <ArrowUpRight /></span></Link>)}</div></div></section>
+
+    <section id="experiencia" className="lab-experience shell" aria-labelledby="experience-title"><div className="lab-experience-intro"><span className="lab-eyebrow">Percurso profissional</span><h2 id="experience-title">Entre camadas,<br />uma visão do todo.</h2><div className="lab-years"><strong>{profile.years}</strong><p>anos de experiência<br />em desenvolvimento web</p></div><p className="lab-experience-note">De 2021 até hoje: desenvolvimento front-end na WK Group e Wetok Software, projetos WordPress na Sinnapse e atuação Full Stack Pleno na FK Partners.</p></div><div className="lab-experience-details">{copy.experience.map((item, index) => <details key={item.title} open={index === 0} className="lab-experience-item"><summary><span className="lab-experience-index">0{index + 1}</span><h3>{item.title}</h3><span className="lab-detail-plus" aria-hidden="true" /></summary><div className="lab-experience-content"><span>{item.context}</span><p>{item.description}</p><div className="inline-tags">{item.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div></div></details>)}<Link className="lab-experience-link" href="/projetos/fk-partners">Explorar o case FK Partners <ArrowUpRight /></Link></div></section>
 
     <CapabilityMap />
 
