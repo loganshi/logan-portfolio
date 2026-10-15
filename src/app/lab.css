@@ -194,3 +194,20 @@
 .lab-contact-copy .lab-eyebrow, .lab-contact-copy > p, .lab-contact-back { color: #301d13; }
 .lab-contact-baseline > span:last-child { opacity: 1; }
 @media (max-width: 370px) { .lab-role { font-size: .64rem; }.lab-module-label { font-size: .66rem; }.capability-node-position > span { font-size: .7rem; } }
+
+/* Real project archive: accessible links to additional cases, separate from the three scroll scenes. */
+.lab-more-work { background: #17191b; color: #eee7e3; padding: clamp(3.5rem, 7vw, 7rem) 0; border-top: 1px solid #ffffff20; }
+.lab-more-work-heading { max-width: 780px; margin-bottom: 2.5rem; }
+.lab-more-work-heading .lab-eyebrow { color: #e3a88a; font-size: .6rem; }
+.lab-more-work-heading h2 { font: 500 clamp(2rem, 4.1vw, 4rem)/1.05 var(--font-display); letter-spacing: -.06em; margin: 1rem 0; }
+.lab-more-work-heading p { color: #aaa9a5; line-height: 1.65; font-size: .9rem; }
+.lab-more-work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.lab-more-work-card { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: .9rem; border: 1px solid #ffffff27; border-radius: 14px; background: #222427; padding: clamp(1.3rem, 3vw, 2.4rem); transition: background .2s, border-color .2s, transform .3s var(--lab-ease); }
+.lab-more-work-card:hover, .lab-more-work-card:focus-visible { background: #2d2e30; border-color: #e38f6b; transform: translateY(-3px); }
+.lab-more-work-card > span:first-child { font-size: .67rem; color: #d1a18e; letter-spacing: .06em; }
+.lab-more-work-card > strong { font: 500 clamp(1.8rem, 2.5vw, 2.8rem)/1.05 var(--font-display); letter-spacing: -.05em; }
+.lab-more-work-card > p { color: #b6b2b0; font-size: .83rem; line-height: 1.6; max-width: 500px; flex: 1; }
+.lab-more-work-cta { display: flex; align-items: center; gap: .6rem; color: #eee7e3; font-size: .73rem; font-weight: 600; margin-top: 1.5rem; }
+.lab-more-work-cta svg { width: 1rem; }
+@media (max-width: 650px) { .lab-more-work-grid { grid-template-columns: 1fr; } .lab-more-work-card { min-height: 230px; } }
+@media (prefers-reduced-motion: reduce) { .lab-more-work-card { transition: none; }.lab-more-work-card:hover, .lab-more-work-card:focus-visible { transform: none; } }

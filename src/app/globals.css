@@ -120,3 +120,38 @@ img { max-width: 100%; }
 }
 @media (max-width: 390px) { .flow-node { width: 66px; }.flow-node-main { width: 98px; }.visual-disclaimer { font-size: .52rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+/* Public technology investigation: distinguish observable functionality from private implementation. */
+.case-audit { padding: clamp(3rem, 6vw, 5rem) 0; border-top: 1px solid var(--line); }
+.case-audit-header { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1rem 2rem; margin: 2rem 0; }
+.case-audit-date { display: inline-block; font-size: .7rem; color: #b6ada8; letter-spacing: .07em; }
+.case-audit h2 { font: 500 clamp(2rem, 4vw, 3.8rem)/1.04 var(--font-display); letter-spacing: -.05em; margin: .8rem 0 0; }
+.case-audit-site { border: 1px solid #ffffff47; border-radius: 40px; display: inline-flex; align-items: center; gap: .6rem; padding: .8rem 1rem; min-height: 44px; font-size: .78rem; }
+.case-audit-site:hover { border-color: var(--accent); color: var(--accent); }
+.case-audit-site svg { width: 1rem; }
+.case-audit-findings { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.case-audit-findings li { border: 1px solid var(--line); background: var(--surface); padding: 1.5rem; border-radius: 12px; font-size: .84rem; line-height: 1.65; }
+.case-audit-findings li::before { content: "↗"; color: var(--accent); font-weight: 700; display: block; font-size: 1.1rem; margin-bottom: .7rem; }
+.case-audit-caution { color: #b7b0ab; line-height: 1.65; margin: 1.6rem 0; padding: 1rem 1.2rem; border-left: 2px solid var(--accent); font-size: .8rem; }
+.case-audit-caution strong { color: #eee7e3; }
+.case-audit-sources { display: flex; align-items: center; flex-wrap: wrap; gap: .65rem 1rem; padding-top: .9rem; border-top: 1px solid var(--line); font-size: .7rem; color: var(--muted); }
+.case-audit-sources a { display: inline-flex; align-items: center; gap: .2rem; text-decoration: underline; text-underline-offset: 4px; color: var(--ink); }
+.case-audit-sources a:hover { color: var(--accent); }
+.case-audit-sources svg { width: .8rem; }
+@media (max-width: 650px) { .case-audit-findings { grid-template-columns: 1fr; } .case-audit-header { align-items: start; } }
+
+/* Audited public asset fingerprints are not historical technology claims. */
+.case-audit-footprints { margin: 1.2rem 0 2rem; }
+.case-audit-footprints h3 { margin: 0 0 .7rem; font: 500 clamp(1.25rem, 2vw, 1.75rem)/1.2 var(--font-display); }
+.case-audit-footprints > p { margin: 0 0 1.2rem; color: #aaa9a9; font-size: .78rem; line-height: 1.6; }
+.case-audit-footprint-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+.case-audit-footprint { min-width: 0; padding: 1rem; border: 1px solid var(--line); background: #191b1d; border-radius: 10px; }
+.case-audit-footprint > strong { display: block; color: #f5f4f0; font-size: .79rem; margin-bottom: .5rem; }
+.case-audit-footprint > code { display: block; font-size: .65rem; color: #aab3ba; line-height: 1.55; word-break: break-word; }
+@media (max-width: 650px) { .case-audit-footprint-grid { grid-template-columns: 1fr; } }
+
+/* Public WordPress REST API names, kept separate from authored backend integrations. */
+.case-rest-evidence { margin: .9rem 0 2rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: 12px; }
+.case-rest-evidence h3 { margin: 0 0 .55rem; font: 500 clamp(1.2rem, 2vw, 1.7rem)/1.2 var(--font-display); }
+.case-rest-evidence p { color: #aab0b3; font-size: .78rem; line-height: 1.65; margin-bottom: 1rem; }
+.case-rest-namespaces { display: flex; flex-wrap: wrap; gap: .5rem; }
+.case-rest-namespaces code { display: inline-flex; border: 1px solid #55606a; padding: .45rem .65rem; border-radius: 6px; font-size: .68rem; background: #21272b; color: #e6edf2; word-break: break-word; }

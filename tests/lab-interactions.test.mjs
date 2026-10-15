@@ -34,6 +34,7 @@ const { CapabilityMap } = await import("../src/components/capability-map.tsx");
 const { ProjectStory } = await import("../src/components/project-story.tsx");
 const { IntegrationPreview, EditorialPreview, LayersPreview } = await import("../src/components/project-previews.tsx");
 const { projects } = await import("../src/content/projects.ts");
+const { publicSiteAudits } = await import("../src/content/site-audits.ts");
 
 let root;
 let host;
@@ -82,7 +83,7 @@ test("Capabilities respond to arrow keys and expose the matching content", async
 });
 
 test("Project chapters keep one accessible scene and retain each case route", async () => {
-  await render(ProjectStory, { projects });
+  await render(ProjectStory, { projects: projects.slice(0, 3) });
   const tabs = [...host.querySelectorAll('[role="tab"]')];
   await click(tabs[1]);
   const visible = [...host.querySelectorAll('[role="tabpanel"]')].filter((panel) => panel.getAttribute("aria-hidden") === "false");
@@ -92,6 +93,32 @@ test("Project chapters keep one accessible scene and retain each case route", as
   await act(async () => { tabs[1].dispatchEvent(new KeyboardEvent("keydown", { key: "End", bubbles: true })); });
   assert.equal(tabs[2].getAttribute("aria-selected"), "true");
   assert.equal(host.querySelector("#scene-solucoes-customizadas").getAttribute("aria-hidden"), "false");
+});
+
+test("Additional real project cases are available by distinct routes", () => {
+  assert.ok(projects.some((project) => project.name === "Expo Neon" && project.slug === "experiencias-institucionais"));
+  assert.ok(projects.some((project) => project.name === "Barcelona Academy" && project.slug === "barcelona-academy"));
+  assert.ok(projects.some((project) => project.name === "FADISP" && project.slug === "fadisp"));
+  assert.equal(new Set(projects.map(({ slug }) => slug)).size, projects.length);
+});
+
+test("Public technical audits cover all case routes without unverifiable backend claims", () => {
+  for (const project of projects) {
+    const audit = publicSiteAudits[project.slug];
+    assert.ok(audit, `Audit exists for ${project.slug}`);
+    assert.match(audit.url, /^https:\/\//);
+    assert.ok(audit.observations.length > 0);
+    assert.ok(audit.fingerprints?.length > 0, `Technology evidence documented for ${project.slug}`);
+    if (["fk-partners", "barcelona-academy", "fadisp"].includes(project.slug)) {
+      assert.ok(audit.publicRestNamespaces?.length > 0, `REST namespaces documented for ${project.slug}`);
+    }
+    for (const fingerprint of audit.fingerprints) {
+      assert.ok(fingerprint.technology.length > 1);
+      assert.ok(fingerprint.evidence.length > 5);
+    }
+    assert.ok(audit.sources.length > 0);
+    assert.ok(audit.limitations.length > 30);
+  }
 });
 
 test("Integration demonstration completes, announces its result, and can restart", async () => {
